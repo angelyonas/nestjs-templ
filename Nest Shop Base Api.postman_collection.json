@@ -1,0 +1,351 @@
+{
+	"info": {
+		"_postman_id": "f051ec45-4d4e-4a74-938e-2f265321eb6b",
+		"name": "Nest Shop Base Api",
+		"description": "Api Nest con endpoints base",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "2488850"
+	},
+	"item": [
+		{
+			"name": "Products",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Andy Polo shirt 3\",\n    \"sizes\": [\"M\", \"S\"],\n    \"gender\": \"women\",\n    \"price\": 30,\n    \"tags\": [\"polo\", \"black\", \"shirt\"],\n    \"images\": [\n        \"http://image1-shirt3.png\",\n        \"http://image2-shirt3.png\"\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/products",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "upload image",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/files/product",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"files",
+								"product"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get product image",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/files/product/1740176-00-A_0_2000.jpg",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"files",
+								"product",
+								"1740176-00-A_0_2000.jpg"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"stock\": 100,\n    \"images\": [\n        \"http://image-23424234.jpg\",\n        \"http://image-9839742.jpg\",\n        \"http://image-97428367482.jpg\"\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/products/0ef90d68-379c-46f4-96b7-d7b1322f3cb6",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"products",
+								"0ef90d68-379c-46f4-96b7-d7b1322f3cb6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"jonas pants\",\n    \"sizes\": [\"M\", \"G\"],\n    \"gender\": \"men\",\n    \"price\": 50\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/products?limit=2&offset=2",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"products"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "2"
+								},
+								{
+									"key": "offset",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get one",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"jonas pants\",\n    \"sizes\": [\"M\", \"G\"],\n    \"gender\": \"men\",\n    \"price\": 50\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/products/:term",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"products",
+								":term"
+							],
+							"variable": [
+								{
+									"key": "term",
+									"value": "Andy Polo shirt 3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"jonas pants\",\n    \"sizes\": [\"M\", \"G\"],\n    \"gender\": \"men\",\n    \"price\": 50\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/products/c8daadc2-aaf4-4954-8e3d-02dba9edeeef",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"products",
+								"c8daadc2-aaf4-4954-8e3d-02dba9edeeef"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"jonawork95@gmail.com\",\n    \"password\": \"Jonas234\",\n    \"fullname\": \"Jonathan Arredondo\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/auth/register",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"user@mail.com\",\n    \"password\": \"User123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/auth/login",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "check auth status",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjA0YjMwMmY0LTdhN2UtNDI0OS05YTUxLTA2NTQyMjYyOTA4OCIsImlhdCI6MTcwMTgzNDI4OSwiZXhwIjoxNzAxODQxNDg5fQ.Z_RR_uifA7Bf9NfAyJK_nUxODU7bAC7WjtP76G0IpLs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/auth/check-status",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"auth",
+								"check-status"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "seed",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/seed",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"seed"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "BASE_URL",
+			"value": "localhost:3000/api",
+			"type": "string"
+		}
+	]
+}
